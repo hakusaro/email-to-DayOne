@@ -3,7 +3,6 @@ imap_username: 'test@example.org'
 imap_password: 'password'
 imap_port: 995
 use_ssl: true
-from_address: 'test@example.org'
-to_address: 'test@example.com'
+folder: 'journal'
 processing_count: 100
 images_folder: 'images/'
