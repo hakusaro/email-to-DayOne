@@ -1,13 +1,15 @@
 # ETD: Email -> Day One
 
+I told someone that I would build an Android client for Day One once. This is a much easier solution to deal with.
+
 ## Features
 
 _Features that are italicized are not implemented yet._
 
-* Emails sent to a specified address are read and imported into Day One.
-	* If an image is attached, that image's EXIF data will be read for location information.
-	* If an image is attached, that image will become that entry's image
-	* If hashtags are present in the subject line, those hashtags will become native tags in Day One.
+* _Emails sent to a specified address are read and imported into Day One._
+	* _If an image is attached, that image's EXIF data will be read for location information._
+	* _If an image is attached, that image will become that entry's image._
+	* _If hashtags are present in the subject line, those hashtags will become native tags in Day One._
 
 As of right now, the subject line will serve no real purpose -- Day One does not have an "entry title" by default, but supports one if the first line of the entry is a title.
 
