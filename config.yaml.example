@@ -1,0 +1,5 @@
+pop3_server: pop.example.org
+pop3_username: 'test@example.org'
+pop3_password: 'password'
+pop3_port: 995
+use_ssl: true
