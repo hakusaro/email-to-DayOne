@@ -1,5 +1,8 @@
-pop3_server: pop.example.org
-pop3_username: 'test@example.org'
-pop3_password: 'password'
-pop3_port: 995
+imap_server: pop.example.org
+imap_username: 'test@example.org'
+imap_password: 'password'
+imap_port: 995
 use_ssl: true
+from_address: 'test@example.org'
+to_address: 'test@example.com'
+processing_count: 100
