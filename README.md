@@ -2,7 +2,7 @@
 
 I told someone that I would build an Android client for Day One once. This is a much easier solution to deal with.
 
-## Features
+### Features
 
 _Features that are italicized are not implemented yet._
 
@@ -13,14 +13,14 @@ _Features that are italicized are not implemented yet._
 
 As of right now, the subject line will serve no real purpose -- Day One does not have an "entry title" by default, but supports one if the first line of the entry is a title.
 
-## Suggestions & improvements
+### Suggestions & improvements
 
 As soon as there's some code here, a pull request is fine!
 
-## License
+### License
 
 GPL v3.0
 
-## Disclaimer
+### Disclaimer
 
-It's not my responsibility if your Day One journal becomes corrupted. It shouldn't -- this uses the command line tools it comes with, but if it does, it's not my problem. It would be highly advisable to setup backup in Day One -> Preferences before going setting this up.
+It's not my responsibility if your Day One journal becomes corrupted. It shouldn't -- this uses the command line tools it comes with, but if it does, it's not my problem. It would be highly advisable to setup backup in ````Day One -> Preferences```` before going setting this up.
