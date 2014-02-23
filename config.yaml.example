@@ -6,3 +6,4 @@ use_ssl: true
 from_address: 'test@example.org'
 to_address: 'test@example.com'
 processing_count: 100
+images_folder: 'images/'

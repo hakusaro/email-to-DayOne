@@ -4,6 +4,7 @@ GEM
     builder (3.1.4)
     commander (4.1.6)
       highline (~> 1.6.11)
+    exifr (1.1.3)
     highline (1.6.20)
     libxml-ruby (2.7.0)
     mail (2.5.4)
@@ -27,5 +28,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  exifr
   mail
   rb-dayone

@@ -18,3 +18,7 @@ _yardoc
 doc/
 
 config.yaml
+
+images/
+
+.DS_Store

@@ -2,6 +2,7 @@
 
 require 'mail'
 require 'rb-dayone'
+require 'exifr'
 
 temp_config = ""
 File.open('config.yaml', 'r').each_line do |line|
@@ -46,13 +47,45 @@ emails.each do |msg|
 		end
 	end
 
+	entry_image_file_location = nil
+
+	# extract the image from the attachments list
+	# technically this will grab every attached image and only use the last one, but...
 	if (msg.has_attachments?) then
-		#todo: extract image and also location data using some crazy image library
+		msg.attachments.each do | attachment |
+		  if (attachment.content_type.start_with?('image/'))
+		    filename = attachment.filename
+		    begin
+		      File.open(app_config['images_folder'] + filename, "w+b", 0644) {|f| f.write attachment.body.decoded}
+		      entry_image_file_location = app_config['images_folder'] + filename
+		    rescue => e
+		      puts "Unable to save data for #{filename} because #{e.message}"
+		    end
+		  end
+		end
 	end
 
 	journal_entry = DayOne::Entry.new(entry_body, :creation_date => entry_date)
+	
+	# Add the tags to the entry
 	if entry_tags != nil && !entry_tags.empty? then journal_entry.tags = entry_tags end
 	
+	# If we have an image
+	if (entry_image_file_location != nil) then
+		journal_entry.image= entry_image_file_location # add the image to the entry
+		
+		if ((entry_image_file_location.downcase.include? 'jpeg') || (entry_image_file_location.downcase.include? 'jpg')) then
+			exifdata = EXIFR::JPEG.new(entry_image_file_location)
+			if (exifdata.gps != nil && exifdata.gps.latitude != nil && exifdata.gps.longitude != nil) then
+				entry_location = DayOne::Location.new
+				entry_location.latitude = exifdata.gps.latitude
+				entry_location.longitude = exifdata.gps.longitude
+				journal_entry.location = entry_location # add location data if available from the image to the entry
+			end
+		end
+	end
+
 	# Create the journal entry, and mark the email for deletion
 	journal_entry.create!
+	File.delete(entry_image_file_location) # delete the temporary image we wrote earlier
 end

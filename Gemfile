@@ -1,4 +1,5 @@
 source 'https://rubygems.org/'
 gem 'mail'
 gem 'rb-dayone'
+gem 'exifr'
 ruby '2.0.0'
