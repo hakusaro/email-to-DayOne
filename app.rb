@@ -33,6 +33,7 @@ emails.each do |msg|
 
 	# Reformat email so that paragraphs are retained, but empty lines are not.
 	new_email = ''
+	entry_body = entry_body.to_s
 	entry_body.lines do |line|
 		if (line.chomp == '') then
 			new_email += line + "\n"
@@ -98,7 +99,7 @@ emails.each do |msg|
 
 	# Create the journal entry, and mark the email for deletion
 	journal_entry.create!
-	File.delete(entry_image_file_location) # delete the temporary image we wrote earlier
+	File.delete(entry_image_file_location) unless entry_image_file_location == nil # delete the temporary image we wrote earlier
 end
 
 puts "Up to #{app_config['processing_count']} emails have been imported into Day One as journal entries."
