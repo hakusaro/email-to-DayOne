@@ -2,6 +2,8 @@
 
 I told someone that I would build an Android client for Day One once. This is a much easier solution to deal with.
 
+**Please don't use this.** Day One 2.0 has IFTTT support that's 100x better than using this script. It's faster, easier, and much, much better to setup.
+
 ### Features
 
 _Features that are italicized are not implemented yet._
